@@ -22,6 +22,7 @@
     <micronaut.aot.packageName>org.fugerit.java.demo.aot.generated</micronaut.aot.packageName>
     <micronaut.test.resources.enabled>true</micronaut.test.resources.enabled>
     <exec.mainClass>org.fugerit.java.demo.Application</exec.mainClass>
+    <fj-version>8.6.2</fj-version>
   </properties>
 
   <repositories>
@@ -43,6 +44,11 @@
       <scope>compile</scope>
     </dependency>
     <dependency>
+      <groupId>io.micronaut.mongodb</groupId>
+      <artifactId>micronaut-mongo-sync</artifactId>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
       <groupId>io.micronaut.serde</groupId>
       <artifactId>micronaut-serde-jackson</artifactId>
       <scope>compile</scope>
@@ -55,7 +61,7 @@
     <dependency>
       <groupId>org.mongodb</groupId>
       <artifactId>mongodb-driver-sync</artifactId>
-      <scope>runtime</scope>
+      <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>org.yaml</groupId>
@@ -71,6 +77,17 @@
       <groupId>io.micronaut.testresources</groupId>
       <artifactId>micronaut-test-resources-client</artifactId>
       <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.fugerit.java</groupId>
+      <artifactId>fj-core</artifactId>
+      <version>${fj-version}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>*</groupId>
+          <artifactId>*</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>io.micronaut</groupId>

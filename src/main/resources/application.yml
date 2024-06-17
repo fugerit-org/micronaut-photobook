@@ -1,4 +1,6 @@
 micronaut:
+  server:
+    context-path: /photobook-demo
   application:
     name: micronaut-photobook
   router:
@@ -9,3 +11,6 @@ micronaut:
       openapi-explorer:
         paths: classpath:META-INF/swagger/views/openapi-explorer
         mapping: /openapi-explorer/**
+
+mongodb:
+  uri: mongodb://localhost:27017/photobook_demo
