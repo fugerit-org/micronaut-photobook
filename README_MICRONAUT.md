@@ -7,9 +7,9 @@
 ---
 
 - [Micronaut Maven Plugin documentation](https://micronaut-projects.github.io/micronaut-maven-plugin/latest/)
-## Feature serialization-jackson documentation
+## Feature maven-enforcer-plugin documentation
 
-- [Micronaut Serialization Jackson Core documentation](https://micronaut-projects.github.io/micronaut-serialization/latest/guide/)
+- [https://maven.apache.org/enforcer/maven-enforcer-plugin/](https://maven.apache.org/enforcer/maven-enforcer-plugin/)
 
 
 ## Feature test-resources documentation
@@ -17,18 +17,9 @@
 - [Micronaut Test Resources documentation](https://micronaut-projects.github.io/micronaut-test-resources/latest/guide/)
 
 
-## Feature openapi-explorer documentation
+## Feature micronaut-aot documentation
 
-- [Micronaut OpenAPI Explorer View documentation](https://micronaut-projects.github.io/micronaut-openapi/latest/guide/#openapiExplorer)
-
-- [https://github.com/Authress-Engineering/openapi-explorer](https://github.com/Authress-Engineering/openapi-explorer)
-
-
-## Feature data-mongodb documentation
-
-- [Micronaut Data MongoDB documentation](https://micronaut-projects.github.io/micronaut-data/latest/guide/#mongo)
-
-- [https://docs.mongodb.com](https://docs.mongodb.com)
+- [Micronaut AOT documentation](https://micronaut-projects.github.io/micronaut-aot/latest/guide/)
 
 
 ## Feature micronaut-test-rest-assured documentation
@@ -38,9 +29,11 @@
 - [https://rest-assured.io/#docs](https://rest-assured.io/#docs)
 
 
-## Feature maven-enforcer-plugin documentation
+## Feature data-mongodb documentation
 
-- [https://maven.apache.org/enforcer/maven-enforcer-plugin/](https://maven.apache.org/enforcer/maven-enforcer-plugin/)
+- [Micronaut Data MongoDB documentation](https://micronaut-projects.github.io/micronaut-data/latest/guide/#mongo)
+
+- [https://docs.mongodb.com](https://docs.mongodb.com)
 
 
 ## Feature openapi documentation
@@ -50,9 +43,23 @@
 - [https://www.openapis.org](https://www.openapis.org)
 
 
-## Feature micronaut-aot documentation
+## Feature crac documentation
 
-- [Micronaut AOT documentation](https://micronaut-projects.github.io/micronaut-aot/latest/guide/)
+- [Micronaut Support for CRaC (Coordinated Restore at Checkpoint) documentation](https://micronaut-projects.github.io/micronaut-crac/latest/guide)
+
+- [https://wiki.openjdk.org/display/CRaC](https://wiki.openjdk.org/display/CRaC)
+
+
+## Feature openapi-explorer documentation
+
+- [Micronaut OpenAPI Explorer View documentation](https://micronaut-projects.github.io/micronaut-openapi/latest/guide/#openapiExplorer)
+
+- [https://github.com/Authress-Engineering/openapi-explorer](https://github.com/Authress-Engineering/openapi-explorer)
+
+
+## Feature serialization-jackson documentation
+
+- [Micronaut Serialization Jackson Core documentation](https://micronaut-projects.github.io/micronaut-serialization/latest/guide/)
 
 
 ## Creation command :
@@ -60,7 +67,7 @@
 Command generated with <https://micronaut.io/launch> :
 
 ```shell
-mn create-app --build=maven --jdk=21 --lang=java --test=junit --features=data-mongodb,micronaut-test-rest-assured,openapi,openapi-explorer,yaml,graalvm org.fugerit.java.demo.micronaut-photobook
+mn create-app --build=maven --jdk=21 --lang=java --test=junit --features=data-mongodb,micronaut-test-rest-assured,openapi,openapi-explorer,yaml,graalvm,crac,micronaut-aot org.fugerit.java.demo.micronaut-photobook
 ```
 
 

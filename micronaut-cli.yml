@@ -3,4 +3,4 @@ defaultPackage: org.fugerit.java.demo
 testFramework: junit
 sourceLanguage: java
 buildTool: maven
-features: [app-name, data, data-mongodb, graalvm, http-client-test, java, java-application, junit, logback, maven, maven-enforcer-plugin, micronaut-aot, micronaut-http-validation, micronaut-test-rest-assured, netty-server, openapi, openapi-explorer, readme, serialization-jackson, shade, static-resources, test-resources, yaml, yaml-build]
+features: [app-name, crac, data, data-mongodb, graalvm, http-client-test, java, java-application, junit, logback, maven, maven-enforcer-plugin, micronaut-aot, micronaut-http-validation, micronaut-test-rest-assured, netty-server, openapi, openapi-explorer, readme, serialization-jackson, shade, static-resources, test-resources, yaml, yaml-build]

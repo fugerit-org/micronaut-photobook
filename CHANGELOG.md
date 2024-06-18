@@ -12,3 +12,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - micronaut photobook project
 - native image optimization instruction
 - benchmark scripts
+- docker build workflows

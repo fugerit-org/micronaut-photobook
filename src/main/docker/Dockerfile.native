@@ -1,0 +1,9 @@
+FROM debian:bookworm-slim
+
+WORKDIR /app
+
+# Copy the native binary from the build stage
+COPY target/micronaut-photobook /app/micronaut-photobook
+
+# Run the application
+CMD ["/app/micronaut-photobook"]
