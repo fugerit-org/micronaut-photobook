@@ -31,6 +31,7 @@
     <antrun-plugin.version>3.1.0</antrun-plugin.version>
     <buildnumber-maven-plugin-version>3.2.0</buildnumber-maven-plugin-version>
     <jacoco-maven-plugin-version>0.8.12</jacoco-maven-plugin-version>
+    <exec.mainClass>org.fugerit.java.demo.Application</exec.mainClass>
   </properties>
 
   <scm>
