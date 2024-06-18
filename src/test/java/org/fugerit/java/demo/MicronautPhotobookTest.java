@@ -23,6 +23,7 @@ import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.utility.MountableFile;
 
 import java.io.File;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
@@ -47,13 +48,7 @@ class MicronautPhotobookTest {
         String mongoDbUri = String.format( "mongodb://localhost:%s/photobook_demo", mongoDbPort );
         log.info( "mongoDbUri: {}", mongoDbUri );
         config = Map.of( "mongodb.uri", mongoDbUri );
-    }
-
-    @AfterAll
-    public static void stopMongoDB() {
-        if ( mongoDBContainer.isRunning() ) {
-            mongoDBContainer.stop();
-        }
+        System.setProperty( "mongodb.uri", mongoDbUri );
     }
 
     @Inject
@@ -66,21 +61,26 @@ class MicronautPhotobookTest {
 
     @Test
     void testAlbumOk( RequestSpecification spec ) {
-        try (EmbeddedServer server = ApplicationContext.run( EmbeddedServer.class, config )) {
-            RestAssured.port = server.getPort();
+        try (EmbeddedServer server = ApplicationContext.run( EmbeddedServer.class, config, "test" )) {
+            log.info( "mongoDB uri from env : {}", server.getEnvironment().getProperty( "mongodb.uri", String.class ) );
+            int restPort = server.getPort();
+            log.info( "rest port : {}", restPort );
             spec.given()
                     .when()
+                    .port( restPort )
                     .get( "/photobook-demo/api/photobook/view/list" )
                     .then()
                     .statusCode(200);
             spec.given()
                     .when()
+                    .port( restPort )
                     .get( "/photobook-demo/api/photobook/view/images/springio23" )
                     .then()
                     .statusCode(200);
 
             spec.given()
                     .when()
+                    .port( restPort )
                     .get( "/photobook-demo/api/photobook/view/download/springio23_1000.jpg" )
                     .then()
                     .statusCode(200);
