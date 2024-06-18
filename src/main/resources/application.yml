@@ -11,6 +11,10 @@ micronaut:
       openapi-explorer:
         paths: classpath:META-INF/swagger/views/openapi-explorer
         mapping: /openapi-explorer/**
+      assets:
+        paths: classpath:static/home/
+        mapping: /home/**
+
 
 mongodb:
   uri: mongodb://localhost:27017/photobook_demo

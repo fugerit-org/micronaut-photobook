@@ -1,11 +1,10 @@
-package org.fugerit.java.demo;
+package org.fugerit.java.demo.micronaut.photobook.rest;
 
 import io.micronaut.http.HttpResponse;
 import io.micronaut.http.annotation.*;
 import jakarta.inject.Inject;
 import org.bson.Document;
 import org.fugerit.java.demo.micronaut.photobook.dto.ResultDTO;
-import org.fugerit.java.demo.micronaut.photobook.rest.RestHelper;
 import org.fugerit.java.demo.micronaut.photobook.service.PhotobookService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
