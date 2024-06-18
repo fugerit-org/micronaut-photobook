@@ -27,9 +27,9 @@ services:
       - ${PWD}/src/test/resources/mongo-db/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
   photobook:
     # possible to chose more tags from :
-    # https://hub.docker.com/repository/docker/fugeritorg/springboot-photobook/general
-    image: fugeritorg/springboot-photobook:latest
-    container_name: springboot-photobook
+    # https://hub.docker.com/repository/docker/fugeritorg/micronaut-photobook/general
+    image: fugeritorg/micronaut-photobook:latest
+    container_name: micronaut-photobook
     restart: always
     networks:
       - micronaut_photobook_network
