@@ -15,6 +15,5 @@ micronaut:
         paths: classpath:static/home/
         mapping: /home/**
 
-
 mongodb:
   uri: mongodb://localhost:27017/photobook_demo

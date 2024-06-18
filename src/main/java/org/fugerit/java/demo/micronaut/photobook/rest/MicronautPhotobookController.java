@@ -27,6 +27,7 @@ public class MicronautPhotobookController {
         return RestHelper.defaultHandle( () -> {
             Document doc =  this.photobookService.listPhotobooks(Locale.ITALY.getCountry(), 10, 1);
             ResultDTO<Document> dto = new ResultDTO<>( doc );
+            log.info( "doc : {}", doc );
             return HttpResponse.ok( dto );
         } );
     }
