@@ -10,6 +10,7 @@ release.properties
 .project
 .classpath
 .settings/
+.micronaut/
 bin/
 
 # IntelliJ
