@@ -2,14 +2,12 @@ package org.fugerit.java.demo.micronaut.photobook.rest;
 
 import io.micronaut.http.HttpResponse;
 import io.micronaut.http.annotation.*;
-import jakarta.inject.Inject;
 import org.bson.Document;
 import org.fugerit.java.demo.micronaut.photobook.dto.ResultDTO;
 import org.fugerit.java.demo.micronaut.photobook.service.PhotobookService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.IOException;
 import java.util.Locale;
 
 @Controller("/api/photobook/view")
@@ -17,10 +15,13 @@ public class MicronautPhotobookController {
 
     private static final Integer DEF_PAGE_SIZE = 10;
 
-    @Inject
     PhotobookService photobookService;
 
-    Logger log = (Logger) LoggerFactory.getLogger(MicronautPhotobookController.class);
+    public MicronautPhotobookController(PhotobookService photobookService) {
+        this.photobookService = photobookService;
+    }
+
+    Logger log = LoggerFactory.getLogger(MicronautPhotobookController.class);
 
     @Get(uri="/list", produces="application/json")
     public HttpResponse<ResultDTO<Document>> list() {
@@ -48,7 +49,7 @@ public class MicronautPhotobookController {
     }
 
     @Get(uri="/download/{imagePath}", produces="image/jpeg")
-    public byte[] downloadImage( @PathVariable String imagePath ) throws IOException {
+    public byte[] downloadImage( @PathVariable String imagePath ) {
         imagePath = imagePath.substring( 0, imagePath.indexOf( '.' ) );
         String[] split = imagePath.split( "_" );
         log.info( "photobookId : {}, imageId : {}", split[0], split[1] );

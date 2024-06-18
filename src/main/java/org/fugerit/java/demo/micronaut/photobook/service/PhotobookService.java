@@ -1,7 +1,6 @@
 package org.fugerit.java.demo.micronaut.photobook.service;
 
 import com.mongodb.client.*;
-import jakarta.inject.Inject;
 import jakarta.inject.Singleton;
 import org.bson.Document;
 import org.fugerit.java.demo.micronaut.photobook.service.mongodb.PhotobookDownloadAggregation;
@@ -15,9 +14,8 @@ import java.util.Base64;
 @Singleton
 public class PhotobookService {
 
-	Logger log = (Logger) LoggerFactory.getLogger(PhotobookService.class);
+	Logger log = LoggerFactory.getLogger(PhotobookService.class);
 
-	@Inject
 	MongoClient mongoClient;
 
 	public PhotobookService(MongoClient mongoClient) {

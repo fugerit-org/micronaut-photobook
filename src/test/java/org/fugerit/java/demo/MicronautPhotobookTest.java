@@ -6,12 +6,9 @@ import io.micronaut.http.HttpStatus;
 import io.micronaut.runtime.EmbeddedApplication;
 import io.micronaut.runtime.server.EmbeddedServer;
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest;
-import io.restassured.RestAssured;
 import io.restassured.specification.RequestSpecification;
 import org.fugerit.java.core.cfg.ConfigRuntimeException;
-import org.fugerit.java.demo.micronaut.photobook.rest.MicronautMetaController;
 import org.fugerit.java.demo.micronaut.photobook.rest.RestHelper;
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
@@ -23,14 +20,12 @@ import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.utility.MountableFile;
 
 import java.io.File;
-import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
 @MicronautTest
 class MicronautPhotobookTest {
 
-    static Logger log = (Logger) LoggerFactory.getLogger(MicronautPhotobookTest.class);
+    static Logger log = LoggerFactory.getLogger(MicronautPhotobookTest.class);
 
     static final GenericContainer mongoDBContainer = new GenericContainer( "mongo:8.0.0-rc8" )
             .withCopyToContainer(MountableFile.forHostPath( new File( "src/test/resources/mongo-db/mongo-init.js" ).getPath() ), "/docker-entrypoint-initdb.d/mongo-init.js" )

@@ -12,7 +12,7 @@ import java.util.Properties;
 @Controller("/api/meta")
 public class MicronautMetaController {
 
-    Logger log = (Logger) LoggerFactory.getLogger(MicronautMetaController.class);
+    Logger log = LoggerFactory.getLogger(MicronautMetaController.class);
 
     @Get(uri="/version", produces="application/json")
     public HttpResponse<Properties> version() {
