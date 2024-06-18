@@ -1,6 +1,8 @@
 package org.fugerit.java.demo.micronaut.photobook.service;
 
 import com.mongodb.client.*;
+import io.micronaut.cache.annotation.CacheConfig;
+import io.micronaut.cache.annotation.Cacheable;
 import jakarta.inject.Singleton;
 import org.bson.Document;
 import org.fugerit.java.demo.micronaut.photobook.service.mongodb.PhotobookDownloadAggregation;
@@ -11,6 +13,7 @@ import org.slf4j.LoggerFactory;
 
 import java.util.Base64;
 
+@CacheConfig("images")
 @Singleton
 public class PhotobookService {
 
@@ -51,8 +54,8 @@ public class PhotobookService {
 		log.info( "listImages, photobookId : {}, langCode : {}", photobookId, langCode );
 		return doc;
 	}
-	
 
+	@Cacheable(parameters = {"photobookId","imageId"})
 	public byte[] downloadImage( String photobookId, String imageId ) {
 		MongoCollection<Document> collection = this.getDatabase().getCollection( "photobook_images" );
 		AggregateIterable<Document> result = collection.aggregate( PhotobookDownloadAggregation.getAggregation(photobookId, imageId) );
