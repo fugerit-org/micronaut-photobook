@@ -21,7 +21,7 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           java-type: 'native'
           java-distribution: 'graalvm'
-          java-version: '22-ea'
+          java-version: '21'
           maven-options: 'package -Dpackaging=native-image -Pbuildreact'
           docker-file: './src/main/docker/Dockerfile.native'
           docker-platforms: linux/arm64
