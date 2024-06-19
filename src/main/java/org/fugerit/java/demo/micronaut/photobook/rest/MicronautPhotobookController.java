@@ -2,6 +2,8 @@ package org.fugerit.java.demo.micronaut.photobook.rest;
 
 import io.micronaut.http.HttpResponse;
 import io.micronaut.http.annotation.*;
+import io.micronaut.scheduling.TaskExecutors;
+import io.micronaut.scheduling.annotation.ExecuteOn;
 import org.bson.Document;
 import org.fugerit.java.demo.micronaut.photobook.dto.ResultDTO;
 import org.fugerit.java.demo.micronaut.photobook.service.PhotobookService;
@@ -10,6 +12,7 @@ import org.slf4j.LoggerFactory;
 
 import java.util.Locale;
 
+@ExecuteOn(TaskExecutors.BLOCKING)
 @Controller("/api/photobook/view")
 public class MicronautPhotobookController {
 
