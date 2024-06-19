@@ -167,14 +167,10 @@ One of the most powerful performance optimizations in Native Image is profile-gu
 1. Build an instrumented image:
 
 ```shell
-mvn package -Dnative -Pinstrumented
+mvn package -Dpackaging=native-image -Pinstrumented
 ```
 
 2. Run the app and apply relevant workload:
-
-```shell
-mv ./target/micronaut-photobook*runner ./target/micronaut-photobook-instrumented
-```
 
 ```shell
 ./target/micronaut-photobook-instrumented
@@ -193,7 +189,7 @@ after you shut down the app, you'll see an `iprof` file in your working director
 3. Build an app with profiles (they are being picked up via `<buildArg>--pgo=${project.basedir}/default.iprof</buildArg>`):
 
 ```shell
-mvn package -Dnative -Poptimized
+mvn package -Dpackaging=native-image -Poptimized
 ```
 
 ## Benchmark scripts
@@ -225,21 +221,30 @@ Follow steps in 'Native optimization : PGO' section
 
 ### 3. Benchmark result
 
+Here are shown the result of a run on one of my systems (Multiple runs have been recorded with consistent results) : 
+
+
+```
+Ubuntu 22.04.4 LTS
+AMD Ryzen 7 3700X
+32 GB of RAM
+```
+
 Sample result of JIT benchmark run :
 
-![JIT Benchmark Result](src/main/docs/images/bench-result-jit-20240617.png)
+![JIT Benchmark Result](src/main/docs/images/bench-result-jit-20240619.png)
 
 Sample result of native (AOT) benchmark run :
 
-![Native Benchmark Result](src/main/docs/images/bench-result-native-20240617.png)
+![Native Benchmark Result](src/main/docs/images/bench-result-native-20240619.png)
 
 ## application stack
 
-| Layer             | 2024 version   |
-|-------------------|----------------|
-| Persistence       | MongoDB 8      |
-| Java version      | GraalVM 21     |
-| API REST          | Quarkus 3.11.x |
-| Node JS           | Node 20        |
-| Front end package | Vite           |
-| Front end UI      | React 18.3     |
+| Layer             | 2024 version    |
+|-------------------|-----------------|
+| Persistence       | MongoDB 8       |
+| Java version      | GraalVM 21      |
+| API REST          | Micronaut 4.5.x |
+| Node JS           | Node 20         |
+| Front end package | Vite            |
+| Front end UI      | React 18.3      |
