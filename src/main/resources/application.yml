@@ -20,4 +20,4 @@ micronaut:
       charset: 'UTF-8'
 
 mongodb:
-  uri: mongodb://localhost:27017/photobook_demo
+  uri: ${MONGODB_URL:`mongodb://localhost:27017/photobook_demo`}

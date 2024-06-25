@@ -6,4 +6,4 @@ WORKDIR /app
 COPY target/micronaut-photobook /app/micronaut-photobook
 
 # Run the application
-CMD ["/app/micronaut-photobook"]
+ENTRYPOINT [ "sh", "-c", "/app/micronaut-photobook ${JAVA_OPTS_APPEND}"]

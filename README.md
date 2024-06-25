@@ -65,13 +65,21 @@ npm run start
 
 <http://localhost:8080/photobook-demo/home/index.html>
 
-## environment variables
+## project environment variables
 
 In case you want a custom mongo db connection :
 
 | key         | dedault                                  | 
 |-------------|------------------------------------------|
-| mongodb.uri | mongodb://localhost:27017/photobook_demo |
+| MONGODB_URL | mongodb://localhost:27017/photobook_demo |
+
+## container environment variables
+
+Other custom environment variables :
+
+| key              | dedault | description                                 |
+|------------------|---------|---------------------------------------------|
+| JAVA_OPTS_APPEND |         | append java options (for instance '-Xmx1g') |
 
 ## Quarkus package
 
