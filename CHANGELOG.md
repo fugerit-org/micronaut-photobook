@@ -13,3 +13,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - native image optimization instruction
 - benchmark scripts
 - docker build workflows
+- Google App Engine (GAE) deployment note
