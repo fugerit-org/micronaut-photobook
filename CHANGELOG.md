@@ -14,3 +14,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - benchmark scripts
 - docker build workflows
 - Google App Engine (GAE) deployment note
+- KNative deployment note

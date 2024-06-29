@@ -1,4 +1,4 @@
-# Quarkus Photobook Demo App
+# Micronaut Photobook Demo App
 
 [![Keep a Changelog v1.1.0 badge](https://img.shields.io/badge/changelog-Keep%20a%20Changelog%20v1.1.0-%23E05735)](https://github.com/fugerit-org/micronaut-photobook/blob/master/CHANGELOG.md)
 [![license](https://img.shields.io/badge/License-Apache%20License%202.0-teal.svg)](https://opensource.org/licenses/Apache-2.0)
@@ -11,7 +11,7 @@
 
 Recently I followed some [Mongo DB courses](https://learn.mongodb.com/) and attended the [Spring I/O 2023](https://2023.springio.net/).  
 So I decided to practice a bit. This project is the result.  
-Currently is just a simple POC integration of Mongo DB and Quarkus
+Currently is just a simple POC integration of Mongo DB and Micronaut
 
 There is a live version at the link [https://springio23.fugerit.org/photobook-demo/home/index.html](https://springio23.fugerit.org/photobook-demo/home/index.html)
 
@@ -81,7 +81,7 @@ Other custom environment variables :
 |------------------|---------|---------------------------------------------|
 | JAVA_OPTS_APPEND |         | append java options (for instance '-Xmx1g') |
 
-## Quarkus package
+## Micronaut package
 
 It is possible to compile the application to a single jar package :
 
@@ -128,7 +128,7 @@ But here I prefer to use classical Dockerfile for setup of github workflow and d
 
 ### docker container (jvm)
 
-Build quarkus application (jar)
+Build micronaut application (jar)
 
 ```shell
 mvn package -Pbuildreact
@@ -282,4 +282,28 @@ For AOT version
 
 Further reference :
 * <https://cloud.google.com/sdk/gcloud/reference/app/deploy>
-* <https://quarkus.io/guides/deploying-to-google-cloud>
+
+## Deploy on KNative
+
+Prerequisites :
+* container environment (docker / podman)
+* Kubernates (for instance minikube)
+* Knative
+
+After setting up Knative,
+Customize the [micronaut-photobook-jit.yaml](src/main/knative/micronaut-photobook-jit.yaml) or
+[micronaut-photobook-aot.yaml](src/main/knative/micronaut-photobook-aot.yaml) service deployment.
+
+And run
+
+```shell
+kubectl apply -f micronaut-photobook-jit.yaml
+```
+
+For JIT version or
+
+```shell
+kubectl apply -f micronaut-photobook-aot.yaml
+```
+
+For AOT version
