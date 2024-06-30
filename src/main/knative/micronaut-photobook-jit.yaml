@@ -1,11 +1,11 @@
 apiVersion: serving.knative.dev/v1
 kind: Service
 metadata:
-  name: micronaut-photobook-aot
+  name: micronaut-photobook-jit
 spec:
   template:
     metadata:
-      name: micronaut-photobook-aot-rev1
+      name: micronaut-photobook-jit-rev1
     spec:
       containers:
         - image: docker.io/fugeritorg/micronaut-photobook:latest
