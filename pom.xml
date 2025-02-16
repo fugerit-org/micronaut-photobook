@@ -22,7 +22,7 @@
     <micronaut.aot.packageName>org.fugerit.java.demo.aot.generated</micronaut.aot.packageName>
     <micronaut.test.resources.enabled>true</micronaut.test.resources.enabled>
     <exec.mainClass>org.fugerit.java.demo.Application</exec.mainClass>
-    <fj-version>8.6.5</fj-version>
+    <fj-version>8.6.6</fj-version>
     <!-- front end runtime -->
     <src.react>src/main/react</src.react>
     <npm.build.script>build</npm.build.script>
