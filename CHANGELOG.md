@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - using actions/setup-java for native build
 - fj-core version set to 8.6.6
 - micronaut version set to 4.7.6
+- switched to mongodb container tag 8.0
 
 ## [Unreleased]
 
