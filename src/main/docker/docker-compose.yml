@@ -33,7 +33,7 @@ services:
     networks:
       - micronaut_photobook_network
     environment:
-      - mongodb.uri=mongodb://mongo8-photobook:27017/photobook_demo
+      - MONGODB_URL=mongodb://mongo8-photobook:27017/photobook_demo
     ports:
       - "8080:8080"
 

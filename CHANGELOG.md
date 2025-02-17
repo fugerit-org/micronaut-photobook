@@ -16,6 +16,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - micronaut version set to 4.7.6
 - switched to mongodb container tag 8.0
 
+### Fixed
+
+- MONGODB_URL environment in docker compose
+
 ## [Unreleased]
 
 ## [1.0.0] - 2024-06-30
