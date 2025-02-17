@@ -1,5 +1,5 @@
 # sample docker compose file for https://github.com/fugerit-org/micronaut-photobook
-# docker compose -f src/main/docker/docker-compose.yml up -d
+# docker compose -f src/main/docker/docker-compose-native.yml up -d
 
 # Define the networks
 networks:
@@ -27,7 +27,7 @@ services:
   photobook:
     # possible to chose more tags from :
     # https://hub.docker.com/repository/docker/fugeritorg/micronaut-photobook/general
-    image: fugeritorg/micronaut-photobook:latest
+    image: fugeritorg/micronaut-photobook:latest-native
     container_name: micronaut-photobook
     restart: always
     networks:
