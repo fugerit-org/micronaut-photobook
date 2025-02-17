@@ -32,6 +32,7 @@
     <buildnumber-maven-plugin-version>3.2.0</buildnumber-maven-plugin-version>
     <jacoco-maven-plugin-version>0.8.12</jacoco-maven-plugin-version>
     <exec.mainClass>org.fugerit.java.demo.Application</exec.mainClass>
+    <maven.compiler.proc>full</maven.compiler.proc>
   </properties>
 
   <scm>
