@@ -17,7 +17,7 @@ export TEST_URL=http://localhost:8080/photobook-demo/api/photobook/view/images/s
 export LOOP_COUNT=250000
 export BASE_DIR=./target
 
-${BASE_DIR}/micronaut-photobook-optimized -Xmx512m &
+${BASE_DIR}/micronaut-photobook -Xmx512m &
 export PID=$!
 psrecord $PID --plot "${BASE_DIR}/$(date +%s)-native.png" --include-children &
 
