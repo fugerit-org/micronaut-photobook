@@ -10,7 +10,7 @@
   <parent>
     <groupId>io.micronaut.platform</groupId>
     <artifactId>micronaut-parent</artifactId>
-    <version>4.7.6</version>
+    <version>4.10.7</version>
   </parent>
   <properties>
     <packaging>jar</packaging>
@@ -22,7 +22,7 @@
     <micronaut.aot.packageName>org.fugerit.java.demo.aot.generated</micronaut.aot.packageName>
     <micronaut.test.resources.enabled>true</micronaut.test.resources.enabled>
     <exec.mainClass>org.fugerit.java.demo.Application</exec.mainClass>
-    <fj-version>8.6.6</fj-version>
+    <fj-version>8.7.3</fj-version>
     <!-- front end runtime -->
     <src.react>src/main/react</src.react>
     <npm.build.script>build</npm.build.script>
@@ -30,7 +30,7 @@
     <exec-plugin.version>3.1.0</exec-plugin.version>
     <antrun-plugin.version>3.1.0</antrun-plugin.version>
     <buildnumber-maven-plugin-version>3.2.0</buildnumber-maven-plugin-version>
-    <jacoco-maven-plugin-version>0.8.12</jacoco-maven-plugin-version>
+    <jacoco-maven-plugin-version>0.8.15</jacoco-maven-plugin-version>
     <exec.mainClass>org.fugerit.java.demo.Application</exec.mainClass>
     <maven.compiler.proc>full</maven.compiler.proc>
   </properties>
