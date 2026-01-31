@@ -1,0 +1,49 @@
+# sample docker compose file for https://github.com/fugerit-org/micronaut-photobook
+# docker compose -f src/main/docker/docker-compose-native.yml up -d
+
+# Define the networks
+networks:
+  micronaut_photobook_network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.23.0.0/16
+
+# Define the services
+# 1. Mongo DB
+# 2. Spring Boot
+services:
+  mongodb:
+    image: mongo:8.2.3
+    container_name: mongo8-photobook
+    restart: always
+    networks:
+      - micronaut_photobook_network
+    ports:
+      - "27017:27017"
+    volumes:
+      # sample photobook initialization
+      - ${PWD}/src/test/resources/mongo-db/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 2G
+  photobook:
+    # possible to chose more tags from :
+    # https://hub.docker.com/repository/docker/fugeritorg/micronaut-photobook/general
+    image: fugeritorg/micronaut-photobook:latest-native
+    container_name: micronaut-photobook
+    restart: always
+    networks:
+      - micronaut_photobook_network
+    environment:
+      - MONGODB_URL=mongodb://mongo8-photobook:27017/photobook_demo
+      - JAVA_OPTS_APPEND=-Xms64M -Xmx128M
+    ports:
+      - "8080:8080"
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 200M
