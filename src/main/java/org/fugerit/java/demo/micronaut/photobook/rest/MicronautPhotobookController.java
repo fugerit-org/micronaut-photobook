@@ -7,6 +7,7 @@ import io.micronaut.scheduling.annotation.ExecuteOn;
 import org.bson.Document;
 import org.fugerit.java.demo.micronaut.photobook.dto.ResultDTO;
 import org.fugerit.java.demo.micronaut.photobook.service.PhotobookService;
+import org.fugerit.java.demo.micronaut.photobook.util.SanitizeUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -55,8 +56,10 @@ public class MicronautPhotobookController {
     public byte[] downloadImage( @PathVariable String imagePath ) {
         imagePath = imagePath.substring( 0, imagePath.indexOf( '.' ) );
         String[] split = imagePath.split( "_" );
-        log.info( "photobookId : {}, imageId : {}", split[0], split[1] );
-        return this.photobookService.downloadImage( split[0], split[1] );
+        String photobookIdParam = SanitizeUtil.sanitizeInputParameter( split[0] );
+        String imageIdParam = SanitizeUtil.sanitizeInputParameter( split[1] );
+        log.info( "photobookId : {}, imageId : {}", photobookIdParam, imageIdParam );
+        return this.photobookService.downloadImage( photobookIdParam, imageIdParam );
     }
 
 }

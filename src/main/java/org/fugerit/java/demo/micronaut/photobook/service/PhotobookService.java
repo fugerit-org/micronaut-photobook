@@ -8,6 +8,7 @@ import org.bson.Document;
 import org.fugerit.java.demo.micronaut.photobook.service.mongodb.PhotobookDownloadAggregation;
 import org.fugerit.java.demo.micronaut.photobook.service.mongodb.PhotobookImagesAggregation;
 import org.fugerit.java.demo.micronaut.photobook.service.mongodb.PhotobookListAggregation;
+import org.fugerit.java.demo.micronaut.photobook.util.SanitizeUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -29,8 +30,9 @@ public class PhotobookService {
 		return this.mongoClient.getDatabase( "photobook_demo" );
 	}
 
-	public Document listPhotobooks( String langCode, int perPage, int currentPage ) {
+	public Document listPhotobooks( String langCodeParam, int perPage, int currentPage ) {
 		MongoCollection<Document> collection = this.getDatabase().getCollection( "photobook_meta" );
+        String langCode = SanitizeUtil.sanitizeInputParameter( langCodeParam );
 		AggregateIterable<Document> result = collection.aggregate( PhotobookListAggregation.getAggregation(langCode, perPage, currentPage) );
 		Document doc = null;
 		try (MongoCursor<Document> cursor = result.iterator()) {
@@ -42,7 +44,9 @@ public class PhotobookService {
 		return doc;
 	}
 	
-	public Document listImages( String photobookId, String langCode, int perPage, int currentPage ) {
+	public Document listImages( String photobookIdParam, String langCodeParam, int perPage, int currentPage ) {
+        String photobookId = SanitizeUtil.sanitizeInputParameter( photobookIdParam );
+        String langCode = SanitizeUtil.sanitizeInputParameter( langCodeParam );
 		MongoCollection<Document> collection = this.getDatabase().getCollection( "photobook_images" );
 		AggregateIterable<Document> result = collection.aggregate( PhotobookImagesAggregation.getAggregation(photobookId, langCode, perPage, currentPage) );
 		Document doc = null;
@@ -55,8 +59,10 @@ public class PhotobookService {
 		return doc;
 	}
 
-	@Cacheable(parameters = {"photobookId","imageId"})
-	public byte[] downloadImage( String photobookId, String imageId ) {
+	@Cacheable(parameters = {"photobookIdParam","imageIdParam"})
+	public byte[] downloadImage( String photobookIdParam, String imageIdParam ) {
+        String photobookId = SanitizeUtil.sanitizeInputParameter( photobookIdParam );
+        String imageId = SanitizeUtil.sanitizeInputParameter( imageIdParam );
 		MongoCollection<Document> collection = this.getDatabase().getCollection( "photobook_images" );
 		AggregateIterable<Document> result = collection.aggregate( PhotobookDownloadAggregation.getAggregation(photobookId, imageId) );
 		byte[] data = null;
