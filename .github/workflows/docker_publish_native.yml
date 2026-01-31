@@ -9,9 +9,6 @@ name: CI docker build native
 #
 # NOTE: The linux/arm64 image is likely to work on Apple Silicon architecture too.
 
-permissions:
-  contents: read
-
 on:
   # triggers on develop
   push:
@@ -30,6 +27,8 @@ jobs:
   # building native executables
   build-native-image:
     name: Build native image
+    permissions:
+      contents: read
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
